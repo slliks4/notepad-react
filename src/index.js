@@ -8,12 +8,12 @@ import TokenRefresh from './helpers/TokenRefresh';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
     <AuthContextProvider>
-      <App />
-      <TokenRefresh />
+      <React.StrictMode>
+          <App />
+          {/* <TokenRefresh /> */}
+      </React.StrictMode>
     </AuthContextProvider>
-  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

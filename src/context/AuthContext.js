@@ -1,6 +1,5 @@
 // react imports
 import { createContext, useEffect, useReducer, useState } from "react";
-import { act } from "react-dom/test-utils";
 
 export const AuthContext = createContext();
 
@@ -16,16 +15,29 @@ export const authReducer = (state, action)=>{
 };
 
 export const AuthContextProvider = ({ children }) => {
-    const [state, dispatch] = useReducer(authReducer, { token: null });
-    const [ Loading, setLoading ] = useState(true)
+    const [state, dispatch] = useReducer(authReducer, { 
+        token: null 
+    });
+    const [ Loading, setLoading ] = useState(true);
 
     useEffect(() => {
-        const token = JSON.parse(localStorage.getItem('token'));
-        if (token) {
-            dispatch({ type: 'LOGIN', payload: token });
-        };
+        const token = localStorage.getItem('token');
+    
+        if (typeof token === 'string' && token.length > 0 && /^[\],:{}\s]*$/.test(token.replace(/\\["\\\/bfnrtu]/g, '@')
+            .replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']')
+            .replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
+                try {
+                    dispatch({ type: 'LOGIN', payload: JSON.parse(token) });
+                } catch (error) {
+                    console.error('Error parsing token:', error);
+                    console.error('Token:', token); // Log the token for debugging
+                }
+        } else {
+            console.error('Invalid token');
+        }
         setLoading(false);
     }, []);
+    
 
     if (!Loading){
         console.log('Authentication state', state);

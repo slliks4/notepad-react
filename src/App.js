@@ -4,23 +4,53 @@ import {
   RouterProvider, 
 } from "react-router-dom";
 
+// Library imports
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
+
 // Layout imports
-import MainLayout from './layouts/MainLayout';
+import AppLayout from './layouts/AppLayout';
+import AuthLayout, { authLayoutActions } from "./layouts/AuthLayout";
+
+// Authentication page imports
+import LoginPage from "./pages/authPage/LoginPage";
+import SignUpPage from "./pages/authPage/SignUpPage";
+
+// App page imports
+import Home from "./pages/appPage/Home";
+import { homePageLoader, homePageAction } from './pages/appPage/Home';
 
 
+// Router
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <MainLayout />,
-    errorElement: <h1>This is the error page</h1>,
+    path: "/authentication",
+    element: <AuthLayout />,
+    errorElement: <h1>This is the error page for auth</h1>,
+
     children:[
       {
-        path: "about",
-        element: <h1>This is the about page</h1>
+        index: true,
+        action: authLayoutActions,
+        element: <LoginPage />
       },
       {
-        path: "contact",
-        element: <h1>This is the contact page</h1>
+        path: "register",
+        action: authLayoutActions,
+        element: <SignUpPage />
+      }
+    ]
+  },
+  {
+    path: "/",
+    element: <AppLayout />,
+    errorElement: <h1> this is the error page for app</h1>,
+    children:[
+      {
+        index: true,
+        action: homePageAction,
+        loader: homePageLoader,
+        element: <Home />,
       }
     ]
   },
@@ -32,7 +62,10 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <RouterProvider router={router} />
+    <>
+      <RouterProvider router={router} />
+      <ToastContainer />
+    </>
   );
 }
 

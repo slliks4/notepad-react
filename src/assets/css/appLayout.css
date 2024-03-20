@@ -1,0 +1,100 @@
+.app-layout{
+    width: 100vw;
+    min-height: 100vh;
+    position: relative;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    background-color: rgb(252, 247, 255);
+}
+.app-layout::-webkit-scrollbar{
+    display: none;
+}
+.component{
+    z-index: 2;
+    background-color: white;
+}
+.app-link{
+    color: black;
+    opacity: .6;
+    text-decoration: none;
+}
+.app-link:active {
+    -webkit-tap-highlight-color: transparent;
+    -moz-tap-highlight-color: transparent; 
+}
+.app-icon{
+    width: 25px;
+    height: 25px;
+}
+.app-header{
+    width: 100vw;
+    padding: 0px 8px;
+    height: 7vh;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.app-header button{
+    border: none;
+    background-color: transparent;
+    outline: none;
+    text-align: left;
+    display: flex;
+}
+.app-header form{
+    width: 75%;
+}
+.app-header form input{
+    width: 100%;
+    font-size: 18px;
+    padding: 3px 0px;
+    border: none;
+    outline: none;
+}
+.app-header form input::placeholder{
+    color: black;
+}
+.app-header .app-link{
+    display: flex;
+}
+.nav-bar{
+    width: 100vw;
+    height: 7vh;
+    bottom: 0;
+    box-shadow: 0px -1px 5px rgba(0, 0, 0, 0.3);
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+    position: fixed;
+    display: flex;
+    align-items: center;
+}
+.nav-bar>a{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    transition: color 0.3s ease, font-weight 0.3s ease;
+}
+.nav-bar>a.active{
+    opacity: 1;
+    font-weight: bolder;
+    color: purple;
+}
+.nav-bar>a:hover{
+    opacity: 1;
+    font-weight: bolder;
+}
+.nav-bar span{
+    padding-top: 3px;
+    text-transform: capitalize;
+    font-size: 12px;
+}
+.pages{
+    top: 7vh;
+    width: 100vw;
+    position: absolute;
+}

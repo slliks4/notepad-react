@@ -1,5 +1,7 @@
 import { useState, useContext } from 'react';
 import { useAuthContext } from './useAuthContext';
+import { setCookie } from '../helpers/Cookies';
+import { toast } from 'react-toastify';
 
 export const useAuth = () => {
     const [isLoading, setIsLoading] = useState(false);
@@ -25,8 +27,11 @@ export const useAuth = () => {
 
             if (response.ok) {
                 const data = await response.json();
-                localStorage.setItem('token', JSON.stringify(data));
-                dispatch({ type: 'LOGIN', payload: data });
+
+                setCookie("access", data.access, "/", 0.2);
+                setCookie("refresh", data.refresh, "/", 30);
+
+                dispatch({ type: 'LOGIN', payload: data.access });
                 return data;
             } else {
                 const errorMessage = await response.text();
@@ -35,8 +40,10 @@ export const useAuth = () => {
             }
         } catch (error) {
             console.error('Login Error:', error);
+            toast.error(error.message);
         } finally {
             setIsLoading(false);
+            toast.success("Login Success")
         }
     };
 
