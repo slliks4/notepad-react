@@ -19,11 +19,11 @@ export default function Navbar() {
         <RiFunctionFill className="app-icon" />
         <span>hub</span>
       </NavLink>
-      <NavLink to={'add'} className="app-link">
+      <NavLink to={'add-note'} className="app-link">
         <IoMdAddCircle className="app-icon" />
         <span>add</span>
       </NavLink>
-      <NavLink to={'search'} className="app-link">
+      <NavLink to={'inbox'} className="app-link">
         <FaBell className="app-icon" />
         <span>inbox</span>
       </NavLink>

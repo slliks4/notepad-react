@@ -1,0 +1,32 @@
+{
+    "1": {
+        "id": 1,
+        "username": "slliks23",
+        "fullname": "Skills Nwokolo",
+        "email": "skills66@gmail.com",
+        "password": "test123",
+        "notes":{
+            "note-id1":{
+                "id": 1,
+                "title": "test1",
+                "content": "test1",
+                "created_at": "2021-01-01 00:00:00",
+                "updated_at": "2021-01-01 00:00:00",
+                "comment": {
+                    "comment-id1": {
+                        "id": 1,
+                        "content": "test1",
+                        "created_at": "2021-01-01 00:00:00",
+                        "updated_at": "2021-01-01 00:00:00"
+                    }
+                },
+                "likes": {
+                    "count": 0
+                },
+                "shared": {
+                    "count": 0
+                }
+            }
+        }
+    }
+}

@@ -1,5 +1,7 @@
 // React Router-dom imports
 import { Form, NavLink } from 'react-router-dom'
+
+// Icon imports
 import { FcGoogle } from "react-icons/fc";
 
 // Import css

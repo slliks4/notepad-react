@@ -1,5 +1,7 @@
 // Import css
 import "../../assets/css/homePage.css"
+
+// Import components
 import Notes from "../../components/Notes";
 
 // Home page Loader

@@ -22,19 +22,19 @@ export const authLayoutActions = async ({request}) => {
 export default function AuthLayout() {
   return (
     <div className="auth-layout">
-        <button 
-          type="button" 
-          className="select-language"
-          onClick={((event)=>{
-          event.preventDefault();
-          console.log("clicked");
-        })}>
-          <span>English (Nigeria)</span>
-          <IoMdArrowDropdown />
-        </button>
-        <main>
-          <Outlet />
-        </main>
+      <button 
+        type="button" 
+        className="select-language"
+        onClick={((event)=>{
+        event.preventDefault();
+        console.log("clicked");
+      })}>
+        <span>English (Nigeria)</span>
+        <IoMdArrowDropdown />
+      </button>
+      <main>
+        <Outlet />
+      </main>
     </div>
   )
 }

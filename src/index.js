@@ -1,18 +1,29 @@
+// React imports
 import React from 'react';
+
+// React dom imports
 import ReactDOM from 'react-dom/client';
+
+// import style
 import './assets/css/style.css';
+
+// app import
 import App from './App';
+
+// helpers imports
 import reportWebVitals from './helpers/reportWebVitals';
-import { AuthContextProvider } from './context/AuthContext';
 import TokenRefresh from './helpers/TokenRefresh';
+
+// Context imports
+import { AuthContextProvider } from './context/AuthContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <AuthContextProvider>
-      <React.StrictMode>
-          <App />
-          {/* <TokenRefresh /> */}
-      </React.StrictMode>
+        <React.StrictMode>
+            <App />
+            {/* <TokenRefresh /> */}
+        </React.StrictMode>
     </AuthContextProvider>
 );
 
