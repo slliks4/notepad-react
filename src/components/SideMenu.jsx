@@ -44,26 +44,26 @@ export default function SideMenu(props) {
         <div>
           <div className="label-top">
             <span>Labels</span>
-            <NavLink to={'edit'} className={'app-link'}>
+            <NavLink to={'note-labels'} className={'app-link'}>
               <FaEdit className="app-icon" />
             </NavLink>
           </div>
           <div>
             <ul className="link-container label-container">
               <li>
-                <NavLink to={'labelf/'} className={'app-link'}>
+                <NavLink to={'note-label/poem'} className={'app-link'}>
                   <MdLabel className="app-icon"/>
                   <span> poem </span>
                 </NavLink>
               </li>
               <li>
-                <NavLink to={'labela/'} className={'app-link'}>
+                <NavLink to={'note-label/schools'} className={'app-link'}>
                   <MdLabel className="app-icon"/>
                   <span> school </span>
                 </NavLink>
               </li>
               <li>
-                <NavLink to={'label/'} className={'app-link'}>
+                <NavLink to={'note-labels'} className={'app-link'}>
                   <IoMdAdd className="app-icon"/>
                   <span>Create new label</span>
                 </NavLink>
@@ -79,7 +79,7 @@ export default function SideMenu(props) {
             </NavLink>
           </li>
           <li>
-            <NavLink to={'deleted'} className={'app-link'}>
+            <NavLink to={'trash'} className={'app-link'}>
               <FaTrashAlt className="app-icon" />
               <span>deleted</span>
             </NavLink>
